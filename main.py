@@ -36,9 +36,8 @@ if __name__ == '__main__':
         con = sqlite3.connect(country+".db")
         cur = con.cursor()
 
-        # cur.execute("CREATE TABLE movie(title, year, score)")
         res = cur.execute("SELECT name FROM sqlite_master WHERE name='stamp_list'")
-        # print(res.fetchone())
+
         if res.fetchone() is None:
             cur.execute("CREATE TABLE stamp_list(key INTEGER, NBR TEXT, SUB_NBR TEXT, SEQUENCE INTEGER, \
                         year TEXT, valuecolor TEXT, \
